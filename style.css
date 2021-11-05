@@ -1,0 +1,38 @@
+body {
+    font-family: 'Helvetica', 'sans-serif';
+}
+
+h1, h2{
+    text-align: center;
+}
+
+h1{
+    margin-left: auto;
+    font-size: 42px;
+}
+
+.description{
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+.restart{
+    margin-right: -70px;
+    margin-left: 20px;
+    float: left;
+}
+
+.ufo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%
+}
+
+.used {
+    display:block;
+    margin-top: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%
+}
