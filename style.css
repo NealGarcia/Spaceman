@@ -12,6 +12,7 @@ h1{
 }
 
 .description{
+    margin-top: -20px;
     font-size: 18px;
     font-weight: lighter;
 }
@@ -29,10 +30,40 @@ h1{
     width: 10%
 }
 
-.used {
-    display:block;
-    margin-top: 400px;
+.spaceman
+{
+    display: block;
+    margin-top: 150px;
     margin-left: auto;
     margin-right: auto;
-    width: 50%
+    padding-left: 15px;
+    width: 10%
+}
+
+.alphabetContainer {
+    display:block;
+    padding-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.used {
+    display:block;
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 8em;
+    max-height: 50%;
+}
+
+.spaces{
+    text-align: center;
+}
+
+
+#space {
+    display: inline-block;
+    flex-direction: row;
+    padding: 5px;
 }
