@@ -23,6 +23,12 @@ h1{
     float: left;
 }
 
+.guesses{
+    margin-left: -70px;
+    margin-right: 20px;
+    float: right;
+}
+
 .ufo {
     display: block;
     margin-left: auto;
@@ -59,6 +65,24 @@ h1{
 
 .spaces{
     text-align: center;
+}
+
+#alphabet{
+    /* display: flex;
+    flex-direction: row;
+    margin-left:auto;
+    margin-right: auto; */
+    margin:15px auto;
+    padding:0;
+    max-width:650px;
+}
+
+#letter{
+    float: left;
+    margin: 0 10px 10px 0;
+    list-style: none;
+    width:35px;
+    height:30px;
 }
 
 

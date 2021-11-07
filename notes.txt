@@ -1,11 +1,11 @@
 TIMEFRAMES
 
-Task                                  Priority                    Est. Time      Time Invested     Act. Time
+Task                                    Priority                    Est. Time      Time Invested     Act. Time
 --------------------------------------------------------------------------------------------------------------
-Setting up framework & layout           H                          5 hrs
-Creating basic game logic               H                          6 hrs
-Styling                                 M                          5 hrs
-Stretch Goals                           L                          not sure
+[X] Setting up framework & layout           H                          5 hrs          3.5 hrs         3.5 hrs
+[ ] Creating basic game logic               H                          6 hrs
+[ ] Styling                                 M                          5 hrs
+[ ] Stretch Goals                           L                          not sure
 
 
 
