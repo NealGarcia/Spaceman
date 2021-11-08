@@ -15,48 +15,66 @@
 // ]
 
 // Array of each word
-const wordsArray = ["asteroid",
-                    "constellation",
-                    "nebula",
-                    "telescope",
-                    "satellite",
-                    "galaxy"]
+// const wordsArray = ["asteroid",
+//                     "constellation",
+//                     "nebula",
+//                     "telescope",
+//                     "satellite",
+//                     "galaxy"]
 
+let word = 'galaxy'
 var ufo = document.querySelector(".ufo")
 var spaceman = document.querySelector(".spaceman")
 var restartButton = document.querySelector(".restart")
-var spacesContainer = document.querySelector(".spaces")
-var alphabet = ['a', 'b', 'c', 'd', 'e', 'f',
-                'g', 'h', 'i', 'j', 'k', 'l', 
-                'm', 'n', 'o', 'p', 'q', 'r',
-                's', 't', 'u', 'v', 'w', 'y',
-                'w', 'y', 'z']
+var letter = ""
+var alphabet = ['A', 'B', 'C', 'D', 'E', 'F',
+                'G', 'H', 'I', 'J', 'K', 'L', 
+                'M', 'N', 'O', 'P', 'Q', 'R',
+                'S', 'T', 'U', 'V', 'W', 'X',
+                'Y', 'Z']
+
+let displayAlphabet = () => {
+    alphabetContainer = document.getElementById("alphabetContainer")
+    lettersList = document.createElement('ul');
+
+    for (var i = 0; i < alphabet.length; i++) {
+      lettersList.id = 'alphabet';
+      letter = document.createElement('li');
+      letter.id = alphabet[i];
+      letter.setAttribute("class", "letter")
+      letter.innerHTML = alphabet[i];
+      alphabetContainer.appendChild(lettersList);
+      lettersList.appendChild(letter);
+    }      
+}
+
+let displaySpaces = () => {
+    var spacesContainer = document.querySelector(".spaces")
+    for (let i = 0; i < word.length; i++){
+        var space = document.createElement("h2")
+        space.setAttribute("id", "space")
+        space.innerText = "_"
+        spacesContainer.appendChild(space)
+    }
+}
+
+// let guess = () => {
+//     var newLetter = document.querySelectorAll(".letter")
+//     newLetter.forEach(element => {
+//         element.addEventListener("click", console.log(element))
+//     })
+// }
+
+let guess = () => {
+    document.querySelectorAll(".letter").forEach(element => {
+        element.addEventListener('click', event => {
+            console.log(element.innerText)
+        })
+    })
+}
 
 
 displayAlphabet()
+displaySpaces()
+guess()
 
-
-
-
-
-function displayAlphabet(){
-    buttons = document.getElementById("buttons")
-    letters = document.createElement('ul');
-
-    for (var i = 0; i < alphabet.length; i++) {
-      letters.id = 'alphabet';
-      var list = document.createElement('li');
-      list.id = 'letter';
-      list.innerHTML = alphabet[i];
-    //   check();
-      buttons.appendChild(letters);
-      letters.appendChild(list);
-    }        
-}   
-
-wordsArray.forEach(word => {
-    var space = document.createElement("h2")
-    space.setAttribute("id", "space")
-    space.innerText = "_"
-    spacesContainer.appendChild(space)
-})
