@@ -15,10 +15,11 @@
 */
 
 const word = 'GALAXY'
+const wordArray = word.split("");
 var ufo = document.querySelector(".ufo")
 var spaceman = document.querySelector(".spaceman")
 var restartButton = document.querySelector(".restart")
-var spacesContainer = document.querySelector(".spaces")
+var spacesContainer = document.querySelector(".spacesContainer")
 var letter = ""
 var letterClicked = ""
 var alphabet = ['A', 'B', 'C', 'D', 'E', 'F',
@@ -54,11 +55,22 @@ let displaySpaces = () => {
 }
 
 // Displays the word to be guessed in the spaces. Default is hidden. 
+// let displayWord = () => {
+//     var guessedWord = document.createElement("h2")
+//     guessedWord.setAttribute("id", "guessedWord")
+//     guessedWord.innerText = word
+//     spacesContainer.appendChild(guessedWord)
+// }
+
+// Displays the word to be guessed in the spaces. Default is hidden. 
 let displayWord = () => {
-    var guessedWord = document.createElement("h2")
-    guessedWord.setAttribute("id", "guessedWord")
-    guessedWord.innerText = word
-    spacesContainer.appendChild(guessedWord)
+    for (let i = 0; i < word.length; i++){
+        letterContainer = document.querySelector(".letterContainer")
+        var guessedLetter = document.createElement("h2")
+        guessedLetter.setAttribute("id", "guessedLetter")
+        guessedLetter.innerText = wordArray[i]
+        letterContainer.appendChild(guessedLetter)
+    }
 }
 
 // Returns true if word contains letter clicked
