@@ -68,16 +68,12 @@ h1{
 }
 
 #alphabet{
-    /* display: flex;
-    flex-direction: row;
-    margin-left:auto;
-    margin-right: auto; */
     margin:15px auto;
     padding:0;
-    max-width:650px;
+    max-width:600px;
 }
 
-#letter{
+#alphabet li{
     float: left;
     margin: 0 10px 10px 0;
     list-style: none;
@@ -85,9 +81,17 @@ h1{
     height:30px;
 }
 
-
 #space {
     display: inline-block;
     flex-direction: row;
+    padding: 5px;
+}
+
+#guessedWord {
+    font-size: 22px;
+    font-weight: lighter;
+    margin-left: 6px;
+    margin-bottom: -45px;
+    letter-spacing: 9px;
     padding: 5px;
 }
