@@ -22,11 +22,12 @@
 //                     "satellite",
 //                     "galaxy"]
 
-let word = 'galaxy'
+let word = 'GALAXY'
 var ufo = document.querySelector(".ufo")
 var spaceman = document.querySelector(".spaceman")
 var restartButton = document.querySelector(".restart")
 var letter = ""
+var letterClicked = ""
 var alphabet = ['A', 'B', 'C', 'D', 'E', 'F',
                 'G', 'H', 'I', 'J', 'K', 'L', 
                 'M', 'N', 'O', 'P', 'Q', 'R',
@@ -58,17 +59,14 @@ let displaySpaces = () => {
     }
 }
 
-// let guess = () => {
-//     var newLetter = document.querySelectorAll(".letter")
-//     newLetter.forEach(element => {
-//         element.addEventListener("click", console.log(element))
-//     })
-// }
-
+// Returns true if word contains letter clicked
 let guess = () => {
     document.querySelectorAll(".letter").forEach(element => {
         element.addEventListener('click', event => {
-            console.log(element.innerText)
+            letterClicked = (element.innerText)
+            console.log(letterClicked)
+            // console.log(String(letterClicked));
+            console.log(word.includes(letterClicked))
         })
     })
 }
