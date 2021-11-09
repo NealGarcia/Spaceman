@@ -16,6 +16,7 @@
 
 const word = 'GALAXY'
 const wordArray = word.split("");
+
 var ufo = document.querySelector(".ufo")
 var spaceman = document.querySelector(".spaceman")
 var restartButton = document.querySelector(".restart")
@@ -29,11 +30,11 @@ var alphabet = ['A', 'B', 'C', 'D', 'E', 'F',
                 'Y', 'Z']
 
 // Display alphabet buttons
-let displayAlphabet = () => {
+var displayAlphabet = () => {
     alphabetContainer = document.getElementById("alphabetContainer")
     lettersList = document.createElement('ul');
 
-    for (var i = 0; i < alphabet.length; i++) {
+    for (let i = 0; i < alphabet.length; i++) {
       lettersList.id = 'alphabet';
       letter = document.createElement('li');
       letter.id = alphabet[i];
@@ -44,8 +45,8 @@ let displayAlphabet = () => {
     }      
 }
 
-// Display spaces 
-let displaySpaces = () => {
+// Display line spaces 
+var displaySpaces = () => { 
     for (let i = 0; i < word.length; i++){
         var space = document.createElement("h2")
         space.setAttribute("id", "space")
@@ -54,47 +55,51 @@ let displaySpaces = () => {
     }
 }
 
-// Displays the word to be guessed in the spaces. Default is hidden. 
-// let displayWord = () => {
-//     var guessedWord = document.createElement("h2")
-//     guessedWord.setAttribute("id", "guessedWord")
-//     guessedWord.innerText = word
-//     spacesContainer.appendChild(guessedWord)
-// }
-
-// Displays the word to be guessed in the spaces. Default is hidden. 
-let displayWord = () => {
+// Displays the word to be guessed in the spaces. Visibility is hidden by default.
+var displayWord = () => {
     for (let i = 0; i < word.length; i++){
         letterContainer = document.querySelector(".letterContainer")
         var guessedLetter = document.createElement("h2")
         guessedLetter.setAttribute("id", "guessedLetter")
         guessedLetter.innerText = wordArray[i]
         letterContainer.appendChild(guessedLetter)
-    }
+    }                                                              
 }
 
-// Returns true if word contains letter clicked
-let guess = () => {
+
+// Console logs letter when clicked and returns true if 'word' contains letter clicked
+var guess = () => {
     document.querySelectorAll(".letter").forEach(element => {
         element.addEventListener('click', event => {
             letterClicked = (element.innerText)
             console.log(letterClicked)
 
-            if(word.includes(letterClicked)){
+            if(word.includes(letterClicked)){ // Conditional 
                 console.log("true")
-                // INSERT FUNCTION CALL IF TRUE
+                return true;
             }
             
             else{
                 console.log("false")
-                // INSERT FUNCTION CALL IF FALSE
+                subtractGuess()
+                return false;
             }
         })
      })
  }
 
+var subtractGuess = () => {
+     var num = document.querySelector(".guessesLeft").innerText
+     var newNum = parseInt(num);
+     newNum = (newNum -1)
+    document.querySelector(".guessesLeft").innerText = newNum;
+}
+
 displayAlphabet()
 displayWord()
 displaySpaces()
 guess()
+
+
+
 
