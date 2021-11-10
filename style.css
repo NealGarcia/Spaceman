@@ -2,7 +2,8 @@ body {
     font-family: 'Maven Pro', sans-serif;
     background-image: url("spacebackground.jpeg");
     background-size: 2000px;
-    color: lightgray;
+    color: white;
+    text-shadow: 2px 2px 5px black;
     
 }
 
@@ -13,14 +14,34 @@ h1, h2{
 #title{
     margin-left: 100px;
 
-    font-family: 'Bowlby One', cursive;
+    font-family: 'Bowlby One', sans-serif;
     font-weight: 400;
     color: #88df8e;
     font-size: 72px;
 }
 
+button {
+    font-size: 20px;
+    color: white;
+    background-color: transparent;
+    font-family: 'Maven Pro', sans-serif;
+    border: 1px solid white;
+    border-radius: 10px
+}
+
+button:hover {
+    background-color: white;
+    color: #0c1723;
+}
+
+.restart {
+    padding: 10px 20px 10px 20px;
+    text-align:center;
+    font-size: 18px;
+}
+
 .description{
-    color: lightgray;
+    color: white;
     text-align: center;
     margin-top: -20px;
     margin-left: 100px;
@@ -80,7 +101,8 @@ h1, h2{
 #alphabet{
     margin:15px auto;
     padding:0;
-    max-width:600px;
+    max-width:650px;
+    text-shadow: none;
 }
 
 #alphabet li{
@@ -93,14 +115,14 @@ h1, h2{
 
 /* alphabet letter button */
 .letter {
-    background-color: lightgray;
+    background-color: #88df8e;
     color: #0c1723;
     float: left;
     text-align: center;
     padding-top: 5px;
-    border: 1px solid lightgray;
+    border: 1px solid #88df8e;
     border-radius: 5px;
-    
+    box-shadow: 2px 2px 5px black;
 }
 
 .gameover{
@@ -115,6 +137,7 @@ h1, h2{
     margin-bottom: 40px;
     font-size: 150%;
     font-family: 'Maven Pro', sans-serif;    font-weight: 800;
+    color: #88df8e;
 }
 
 #alphabetContainer{
@@ -122,14 +145,14 @@ h1, h2{
 }
 #hintWrapper {
     margin: auto;
+    margin-top: -40px;
     width: 50%;
     text-align:center;
 
 }
 #hint {
-    padding: 5px 10px 10px 5px;
+    padding: 10px 20px 10px 20px;
     text-align:center;
-    font-weight: 800;
     font-size: 18px;
 }
 
