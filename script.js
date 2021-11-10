@@ -18,14 +18,12 @@
 const words = ["ASTEROID", "GALAXY", "NEBULA", "TELESCOPE", "SATELLITE", "CONSTELLATION", "METEOR", "GRAVITY", "PLANET", "INTERSTELLAR",]
 randomWord = words[Math.floor(Math.random() * words.length)]; //expression to pick random word from array
 const word = randomWord
-const wordArray = word.split("");
 var guessedLetters = [];
 console.log(word)
 
 
 var ufo = document.querySelector(".ufo")
 var spaceman = document.querySelector(".spaceman")
-var restartButton = document.querySelector(".restart")
 var spacesContainer = document.querySelector(".spacesContainer")
 var letter = ""
 var letterClicked = ""
@@ -51,29 +49,8 @@ var displayAlphabet = () => {
     }      
 }
 
-// Display line spaces 
-var displaySpaces = () => { 
-    for (let i = 0; i < word.length; i++){
-        var space = document.createElement("h2")
-        space.setAttribute("id", "space")
-        space.innerText = "_"
-        spacesContainer.appendChild(space)
-    }
-}
-
-// Displays the word to be guessed in the spaces. Visibility is hidden by default.
-// var displayWord = () => {
-//     for (let i = 0; i < word.length; i++){
-//         letterContainer = document.querySelector(".letterContainer")
-//         var guessedLetter = document.createElement("h2")
-//         guessedLetter.setAttribute("id", "guessedLetter")
-//         guessedLetter.innerText = wordArray[i]
-//         letterContainer.appendChild(guessedLetter)
-//     }                                                              
-// }
-
 // Go through all the letters of the word and if a letter has not been guessed, there is an underscore
-getWordStatus = () => {
+var getWordStatus = () => {
     var wordStatus  = [];
     var splitWord = word.split("");
   
@@ -104,12 +81,14 @@ var guess = () => {
                 guessedLetters.push(letterClicked)
                 console.log(guessedLetters)
                 displayWord();
+                hideButton(letterClicked);
                 return true;
             }
             
             else{
                 console.log("false")
-                subtractGuess()
+                subtractGuess() // subtract guess
+                hideButton(letterClicked)
                 return false;
             }
         })
@@ -118,7 +97,6 @@ var guess = () => {
 
  var resetSpaces = function () {
     var word = document.getElementById("currentWord");
-  
     while (word.firstChild) {
       word.removeChild(word.firstChild);
     }
@@ -129,7 +107,6 @@ var guess = () => {
     resetSpaces();
     var currentWordDOM = document.querySelector('#currentWord')
     var currentWord = getWordStatus();
-
      currentWord.forEach(function (letterClicked) {
          letterContainer = document.querySelector(".letterContainer")
          var spanLetter = document.createElement("span")
@@ -177,9 +154,28 @@ var displayGameWon = () => {
     spaceman.style.display = ("none")
 }
 
+// Restart game when button pressed
+var restart = () => {
+    var restartButton = document.querySelector(".restart")
+    restartButton.addEventListener("click", event => {
+        console.log("restart button test success")
+        location.reload();
+    })
+
+}
+
+// Change button styling to show it has been clicked
+var hideButton = (letterClicked) => {
+    var id = letterClicked;
+    var letterButton = document.querySelector(`#${id}`)
+    letterButton.style.borderColor = "#C5C5C5"
+    letterButton.style.color = "#C5C5C5"                                                                   
+}
+
+displayWord()
 displayAlphabet()
-displaySpaces()
 guess()
+restart()
 
 
 
