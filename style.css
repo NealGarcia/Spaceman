@@ -103,13 +103,6 @@ h1, h2{
     
 }
 
-/* #guessedLetter {
-    font-size: 22px;
-    font-weight: lighter;
-    display: inline-block;
-    padding: 5px;
-    /* visibility: hidden; */
-} */
 .gameover{
     text-align: center;
     margin-top: 90px;
