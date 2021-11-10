@@ -1,26 +1,25 @@
 /* Array of objects -> each object has a word and its hint
 // var wordsArray = [
 //     [{word: "asteroid",
-//      hint: "a small rocky body orbiting the sun" },
+//       "a small rocky body orbiting the sun" },
 //     {word: "constellation",
-//      hint: "a group of stars that form a pattern in the sky"},
+//       "a group of stars that form a pattern in the sky"},
 //     {word: "nebula",
-//      hint: "a giant cloud of dust and gas in space"},
+//       "a giant cloud of dust and gas in space"},
 //     {word: "telescope",
-//      hint: "instrument used to view distant objects in space"},
+//       "instrument used to view distant objects in space"},
 //     {word: "satellite",
-//      hint: "an object in orbit"},      
+//       "an object in orbit"},      
 //     {word: "galaxy",
-//      hint: "a system of stars and planets"}]
+//       "a system of stars and planets"}]
 */
 
 // Array of words
 const words = ["ASTEROID", "GALAXY", "NEBULA", "TELESCOPE", "SATELLITE", "CONSTELLATION", "METEOR", "GRAVITY", "PLANET", "INTERSTELLAR",]
-randomWord = words[Math.floor(Math.random() * words.length)]; //expression to pick random word from array
+const randomWord = words[Math.floor(Math.random() * words.length)]; //expression to pick random word from array
 const word = randomWord
 var guessedLetters = [];
 console.log(word)
-
 
 var ufo = document.querySelector(".ufo")
 var spaceman = document.querySelector(".spaceman")
@@ -57,7 +56,6 @@ var getWordStatus = () => {
     splitWord.forEach(function (letter) {
       if (guessedLetters.indexOf(letter) > -1) {
         wordStatus.push(letter);
-        console.log(wordStatus)
       } else {
         wordStatus.push("_");
       }
@@ -82,12 +80,13 @@ var guess = () => {
                 console.log(guessedLetters)
                 displayWord();
                 hideButton(letterClicked);
+                displayGameWon();
                 return true;
             }
             
             else{
                 console.log("false")
-                subtractGuess() // subtract guess
+                subtractGuess() // subtract 1 from guess count
                 hideButton(letterClicked)
                 return false;
             }
@@ -95,12 +94,13 @@ var guess = () => {
      })
  }
 
- var resetSpaces = function () {
+// reset spaces
+var resetSpaces = function () {
     var word = document.getElementById("currentWord");
     while (word.firstChild) {
       word.removeChild(word.firstChild);
     }
-  };
+}
 
  // Display word AND spaces
  var displayWord = (word) => {
@@ -138,27 +138,26 @@ var displayGameOver = () => {
     subHeader.innerText = "The astronaut was abducted :("
     gameOverContainer.appendChild(gameOver)
     gameOverContainer.appendChild(subHeader)
-    spaceman.style.display = ("none")
 }
 
 // Display game won message
 var displayGameWon = () => {
-    console.log("game won")
-    gameOverContainer = document.querySelector(".gameover")
-    var gameOver = document.createElement("h1");
-    var subHeader = document.createElement("p")
-    gameOver.innerText = "GAME OVER"
-    subHeader.innerText = "The astronaut was abducted :("
-    gameOverContainer.appendChild(gameOver)
-    gameOverContainer.appendChild(subHeader)
-    spaceman.style.display = ("none")
+    if (getWordStatus().indexOf("_") < 0){
+        console.log("game won")
+        gameOverContainer = document.querySelector(".gameover")
+        var gameOver = document.createElement("h1");
+        var subHeader = document.createElement("p")
+        gameOver.innerText = "GAME OVER"
+        subHeader.innerText = "You won! :)"
+        gameOverContainer.appendChild(gameOver)
+        gameOverContainer.appendChild(subHeader)
+    }
 }
 
 // Restart game when button pressed
 var restart = () => {
     var restartButton = document.querySelector(".restart")
     restartButton.addEventListener("click", event => {
-        console.log("restart button test success")
         location.reload();
     })
 
@@ -171,11 +170,51 @@ var hideButton = (letterClicked) => {
     letterButton.style.borderColor = "#C5C5C5"
     letterButton.style.color = "#C5C5C5"                                                                   
 }
+var hintButton = document.querySelector("#hintWrapper")
+var hint = () => {
+    hintButton.addEventListener('click', event => {
+        console.log("hint button test")
+        var hint = document.createElement("p")
+        if(word == "ASTEROID"){
+            hint.innerText = "a small rocky body orbiting the sun"
+        }
+        if(word == "GALAXY"){
+            hint.innerText = "a system of stars and planets"
+        }
+        if(word == "NEBULA"){
+            hint.innerText = "a giant cloud of dust and gas in space"
+        }
+        if(word == "TELESCOPE"){
+            hint.innerText = "instrument used to view distant objects in space"
+        }
+        if(word == "SATELLITE"){
+            hint.innerText = "an object in orbit"
+        }
+        if(word == "CONSTELLATION"){
+            hint.innerText = "a group of stars that form a pattern in the sky"
+        }
+        if(word == "METEOR"){
+            hint.innerText = "a space rock that enters Earth's atmosphere"
+        }
+        if(word == "GRAVITY"){
+            hint.innerText = "a force which tries to pull two objects toward each other"
+        }
+        if(word == "INTERSTELLAR"){
+            hint.innerText = "situated or occurring between the stars"
+        }
+
+        hint.setAttribute("id", "hint")
+        hintWrapper = document.querySelector("#hintWrapper")
+        hintWrapper.appendChild(hint)
+    })
+}
+
 
 displayWord()
 displayAlphabet()
 guess()
 restart()
+hint()
 
 
 
