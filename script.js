@@ -170,8 +170,9 @@ var restart = () => {
 var hideButton = (letterClicked) => {
     var id = letterClicked;
     var letterButton = document.querySelector(`#${id}`)
-    letterButton.style.borderColor = "#C5C5C5"
-    letterButton.style.color = "#C5C5C5"                                                                   
+    letterButton.style.opacity = "0.3";
+    // letterButton.style.borderColor = "#C5C5C5"
+    // letterButton.style.color = "#C5C5C5"                                                                   
 }
 
 // Display hint upon click

@@ -1,20 +1,26 @@
 body {
-    font-family: 'Maven Pro', sans-serif;}
+    font-family: 'Maven Pro', sans-serif;
+    background-image: url("spacebackground.jpeg");
+    background-size: 2000px;
+    color: lightgray;
+    
+}
 
 h1, h2{
     text-align: center;
 }
 
-
-
 #title{
     margin-left: 100px;
-    font-size: 42px;
+
     font-family: 'Bowlby One', cursive;
     font-weight: 400;
+    color: #88df8e;
+    font-size: 72px;
 }
 
 .description{
+    color: lightgray;
     text-align: center;
     margin-top: -20px;
     margin-left: 100px;
@@ -26,7 +32,7 @@ h1, h2{
 #currentWord span {
     display: inline-block;
     margin: 0 10px;
-  }
+}
 
 .restart{
     margin-right: -70px;
@@ -61,7 +67,6 @@ h1, h2{
     margin-right: auto;
     padding-left: 15px;
     width: 10%;
-    visibility: visible;
 }
 
 .alphabetContainer {
@@ -70,15 +75,6 @@ h1, h2{
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-}
-
-.used {
-    display:block;
-    padding-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 8em;
-    max-height: 50%;
 }
 
 #alphabet{
@@ -95,11 +91,14 @@ h1, h2{
     height:30px;
 }
 
+/* alphabet letter button */
 .letter {
+    background-color: lightgray;
+    color: #0c1723;
     float: left;
     text-align: center;
     padding-top: 5px;
-    border: 1px solid black;
+    border: 1px solid lightgray;
     border-radius: 5px;
     
 }
@@ -115,6 +114,24 @@ h1, h2{
     margin-top: 40px;
     margin-bottom: 40px;
     font-size: 150%;
-    font-family: 'Bowlby One', cursive;
-    font-weight: 200;
+    font-family: 'Maven Pro', sans-serif;    font-weight: 800;
 }
+
+#alphabetContainer{
+    margin-bottom: 200px;
+}
+#hintWrapper {
+    margin: auto;
+    width: 50%;
+    text-align:center;
+
+}
+#hint {
+    padding: 5px 10px 10px 5px;
+    text-align:center;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+#hintDescription {
+    font-weight: light;}
