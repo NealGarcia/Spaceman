@@ -1,10 +1,11 @@
 body {
-    font-family: 'Helvetica', 'sans-serif';
-}
+    font-family: 'Maven Pro', sans-serif;}
 
 h1, h2{
     text-align: center;
 }
+
+
 
 #title{
     margin-left: 100px;
@@ -107,4 +108,13 @@ h1, h2{
     text-align: center;
     margin-top: 90px;
     margin-bottom: 62px;
+}
+
+#currentWord{
+    text-align:center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 150%;
+    font-family: 'Bowlby One', cursive;
+    font-weight: 200;
 }
