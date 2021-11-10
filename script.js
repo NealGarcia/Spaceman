@@ -14,11 +14,13 @@
 //      hint: "a system of stars and planets"}]
 */
 
-const words = ["ASTEROID", "GALAXY", "NEBULA", "TELESCOPE", "SATELLITE", "CONSTELLATION", "METEOR"]
-randomWord = words[Math.floor(Math.random() * words.length)];
-console.log(randomWord)
+// Array of words
+const words = ["ASTEROID", "GALAXY", "NEBULA", "TELESCOPE", "SATELLITE", "CONSTELLATION", "METEOR", "GRAVITY", "PLANET", "INTERSTELLAR",]
+randomWord = words[Math.floor(Math.random() * words.length)]; //expression to pick random word from array
 const word = randomWord
 const wordArray = word.split("");
+var guessedLetters = [];
+console.log(word)
 
 
 var ufo = document.querySelector(".ufo")
@@ -60,22 +62,15 @@ var displaySpaces = () => {
 }
 
 // Displays the word to be guessed in the spaces. Visibility is hidden by default.
-var displayWord = () => {
-    for (let i = 0; i < word.length; i++){
-        letterContainer = document.querySelector(".letterContainer")
-        var guessedLetter = document.createElement("h2")
-        guessedLetter.setAttribute("id", "guessedLetter")
-        guessedLetter.innerText = wordArray[i]
-        letterContainer.appendChild(guessedLetter)
-    }                                                              
-}
-
-var insertLetter = () => {
-    // char = 
-
-
-}
-
+// var displayWord = () => {
+//     for (let i = 0; i < word.length; i++){
+//         letterContainer = document.querySelector(".letterContainer")
+//         var guessedLetter = document.createElement("h2")
+//         guessedLetter.setAttribute("id", "guessedLetter")
+//         guessedLetter.innerText = wordArray[i]
+//         letterContainer.appendChild(guessedLetter)
+//     }                                                              
+// }
 
 // Console logs letter when clicked and returns true if 'word' contains letter clicked
 var guess = () => {
@@ -86,6 +81,11 @@ var guess = () => {
 
             if(word.includes(letterClicked)){ // Conditional 
                 console.log("true")
+                if (guessedLetters.indexOf(letterClicked) > -1) {
+                    return;
+                }
+                guessedLetters.push(letterClicked)
+                console.log(guessedLetters)
                 return true;
             }
             
@@ -97,6 +97,17 @@ var guess = () => {
         })
      })
  }
+
+//////
+// var check = (letterClicked) => {
+//     console.log("function call success")
+//     // if(letterClicked.indexOf(letter) > - 1) {
+//     //     return;
+//     // }
+//     letterClicked.push(guessedLetters);
+//     console.log(guessedLetters)
+
+// }
 
 // Subtract 1 guess everytime player chooses wrong letter
 var subtractGuess = () => {
@@ -136,7 +147,7 @@ var displayGameWon = () => {
 }
 
 displayAlphabet()
-displayWord()
+// displayWord()
 displaySpaces()
 guess()
 
