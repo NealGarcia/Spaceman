@@ -80,14 +80,6 @@ h1, h2{
     max-height: 50%;
 }
 
-.spacesContainer{
-    text-align: center;
-}
-
-.letterContainer{
-    text-align: center;
-    margin-bottom: -70px;
-}
 #alphabet{
     margin:15px auto;
     padding:0;
@@ -111,28 +103,13 @@ h1, h2{
     
 }
 
-#space {
-    display: inline-block;
-    flex-direction: row;
-    padding: 5px;
-}
-
-#guessedWord {
-    font-size: 22px;
-    font-weight: lighter;
-    margin-left: 6px;
-    margin-bottom: -45px;
-    letter-spacing: 9px;
-    padding: 5px;
-}
-
-#guessedLetter {
+/* #guessedLetter {
     font-size: 22px;
     font-weight: lighter;
     display: inline-block;
     padding: 5px;
     /* visibility: hidden; */
-}
+} */
 .gameover{
     text-align: center;
     margin-top: 90px;
