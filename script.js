@@ -14,8 +14,12 @@
 //      hint: "a system of stars and planets"}]
 */
 
-const word = 'GALAXY'
+const words = ["ASTEROID", "GALAXY", "NEBULA", "TELESCOPE", "SATELLITE", "CONSTELLATION", "METEOR"]
+randomWord = words[Math.floor(Math.random() * words.length)];
+console.log(randomWord)
+const word = randomWord
 const wordArray = word.split("");
+
 
 var ufo = document.querySelector(".ufo")
 var spaceman = document.querySelector(".spaceman")
@@ -66,6 +70,12 @@ var displayWord = () => {
     }                                                              
 }
 
+var insertLetter = () => {
+    // char = 
+
+
+}
+
 
 // Console logs letter when clicked and returns true if 'word' contains letter clicked
 var guess = () => {
@@ -88,11 +98,41 @@ var guess = () => {
      })
  }
 
+// Subtract 1 guess everytime player chooses wrong letter
 var subtractGuess = () => {
      var num = document.querySelector(".guessesLeft").innerText
      var newNum = parseInt(num);
      newNum = (newNum -1)
     document.querySelector(".guessesLeft").innerText = newNum;
+    if (newNum == 0){
+        displayGameOver()
+    }
+}
+
+// Display game over message
+var displayGameOver = () => {
+    console.log("game over")
+    gameOverContainer = document.querySelector(".gameover")
+    var gameOver = document.createElement("h1");
+    var subHeader = document.createElement("p")
+    gameOver.innerText = "GAME OVER"
+    subHeader.innerText = "The astronaut was abducted :("
+    gameOverContainer.appendChild(gameOver)
+    gameOverContainer.appendChild(subHeader)
+    spaceman.style.display = ("none")
+}
+
+// Display game won message
+var displayGameWon = () => {
+    console.log("game won")
+    gameOverContainer = document.querySelector(".gameover")
+    var gameOver = document.createElement("h1");
+    var subHeader = document.createElement("p")
+    gameOver.innerText = "GAME OVER"
+    subHeader.innerText = "The astronaut was abducted :("
+    gameOverContainer.appendChild(gameOver)
+    gameOverContainer.appendChild(subHeader)
+    spaceman.style.display = ("none")
 }
 
 displayAlphabet()
