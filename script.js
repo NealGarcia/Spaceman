@@ -90,7 +90,7 @@ var guess = () => {
                 hideButton(letterClicked)
                 return false;
             }
-        })
+        },{once : true}) // makes the button clickable once
      })
  }
 
@@ -170,8 +170,10 @@ var hideButton = (letterClicked) => {
     letterButton.style.borderColor = "#C5C5C5"
     letterButton.style.color = "#C5C5C5"                                                                   
 }
-var hintButton = document.querySelector("#hintWrapper")
+
+// Display hint upon click
 var hint = () => {
+    var hintButton = document.querySelector("#hintWrapper")
     hintButton.addEventListener('click', event => {
         console.log("hint button test")
         var hint = document.createElement("p")
@@ -206,9 +208,8 @@ var hint = () => {
         hint.setAttribute("id", "hint")
         hintWrapper = document.querySelector("#hintWrapper")
         hintWrapper.appendChild(hint)
-    })
+    }, {once : true})
 }
-
 
 displayWord()
 displayAlphabet()
