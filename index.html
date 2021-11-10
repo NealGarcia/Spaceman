@@ -6,27 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPACEMAN</title>
     <link rel="stylesheet" href = "style.css">    
+
+    <!--  Google fonts linked below -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
+    <!-------------------------------->
 </head>
 <body>
     <header>
         <button class ="restart">Restart</button>
-        <div class="guesses">Guesses Left: </div>
-        <h1>SPACEMAN</h1>
-        <h2 class= "description">Use the letters below to guess the sentence.<br> After eight guesses the astronaut gets abducted!</bt></h2>
+        <p class="guesses">Guesses Left: </p>
+        <p class="guessesLeft">8</p>
+        <h1 id = "title">SPACEMAN</h1>
+        <h2 class= "description">Use the letters below to guess the <b>outer space</b> related word. <br> After eight guesses the astronaut gets abducted!</bt></h2>
     </header>
 
     <main>
         <img src ="ufo.png" alt="UFO" class = "ufo">
+        <div class = "gameover"></div>
         <img src ="astronaut.png" alt="spaceman" class = "spaceman">
+
         
         
 
     </main>
 
     <footer>
-        <div class = "spaces"></div>
+        <div id = "currentWord"></div>
+        <div class = "letterContainer"></div>
+        <div class ="spacesContainer"></div>
         <div id = "alphabetContainer"></div>
-        <h3 class = "used">used letters:</h3>
+        <!-- <h3 class = "used">used letters:</h3> -->
 
     </footer>
 

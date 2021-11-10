@@ -72,6 +72,23 @@ var displaySpaces = () => {
 //     }                                                              
 // }
 
+// Go through all the letters of the word and if a letter has not been guessed, there is an underscore
+getWordStatus = () => {
+    var wordStatus  = [];
+    var splitWord = word.split("");
+  
+    splitWord.forEach(function (letter) {
+      if (guessedLetters.indexOf(letter) > -1) {
+        wordStatus.push(letter);
+        console.log(wordStatus)
+      } else {
+        wordStatus.push("_");
+      }
+    });
+  
+    return wordStatus;
+  };
+
 // Console logs letter when clicked and returns true if 'word' contains letter clicked
 var guess = () => {
     document.querySelectorAll(".letter").forEach(element => {
@@ -81,11 +98,12 @@ var guess = () => {
 
             if(word.includes(letterClicked)){ // Conditional 
                 console.log("true")
-                if (guessedLetters.indexOf(letterClicked) > -1) {
+                if (guessedLetters.indexOf(letterClicked) > -1) { // check if letter has already been clicked
                     return;
                 }
                 guessedLetters.push(letterClicked)
                 console.log(guessedLetters)
+                displayWord();
                 return true;
             }
             
@@ -98,16 +116,29 @@ var guess = () => {
      })
  }
 
-//////
-// var check = (letterClicked) => {
-//     console.log("function call success")
-//     // if(letterClicked.indexOf(letter) > - 1) {
-//     //     return;
-//     // }
-//     letterClicked.push(guessedLetters);
-//     console.log(guessedLetters)
+ var resetSpaces = function () {
+    var word = document.getElementById("currentWord");
+  
+    while (word.firstChild) {
+      word.removeChild(word.firstChild);
+    }
+  };
 
-// }
+ // Display word AND spaces
+ var displayWord = (word) => {
+    resetSpaces();
+    var currentWordDOM = document.querySelector('#currentWord')
+    var currentWord = getWordStatus();
+
+     currentWord.forEach(function (letterClicked) {
+         letterContainer = document.querySelector(".letterContainer")
+         var spanLetter = document.createElement("span")
+         var content = document.createTextNode(letterClicked);
+
+         spanLetter.appendChild(content)
+         currentWordDOM.appendChild(spanLetter)
+     })
+ }
 
 // Subtract 1 guess everytime player chooses wrong letter
 var subtractGuess = () => {
@@ -147,7 +178,6 @@ var displayGameWon = () => {
 }
 
 displayAlphabet()
-// displayWord()
 displaySpaces()
 guess()
 

@@ -6,16 +6,26 @@ h1, h2{
     text-align: center;
 }
 
-h1{
-    margin-left: auto;
+#title{
+    margin-left: 100px;
     font-size: 42px;
+    font-family: 'Bowlby One', cursive;
+    font-weight: 400;
 }
 
 .description{
+    text-align: center;
     margin-top: -20px;
+    margin-left: 100px;
+    margin-right: 120px;
     font-size: 18px;
     font-weight: lighter;
 }
+
+#currentWord span {
+    display: inline-block;
+    margin: 0 10px;
+  }
 
 .restart{
     margin-right: -70px;
@@ -25,7 +35,13 @@ h1{
 
 .guesses{
     margin-left: -70px;
-    margin-right: 20px;
+    margin-right: 70px;
+    float: right;
+}
+
+.guessesLeft{
+    margin-top: 16px;
+    margin-right: -45px;
     float: right;
 }
 
@@ -43,7 +59,8 @@ h1{
     margin-left: auto;
     margin-right: auto;
     padding-left: 15px;
-    width: 10%
+    width: 10%;
+    visibility: visible;
 }
 
 .alphabetContainer {
@@ -63,10 +80,14 @@ h1{
     max-height: 50%;
 }
 
-.spaces{
+.spacesContainer{
     text-align: center;
 }
 
+.letterContainer{
+    text-align: center;
+    margin-bottom: -70px;
+}
 #alphabet{
     margin:15px auto;
     padding:0;
@@ -79,6 +100,15 @@ h1{
     list-style: none;
     width:35px;
     height:30px;
+}
+
+.letter {
+    float: left;
+    text-align: center;
+    padding-top: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    
 }
 
 #space {
@@ -94,4 +124,17 @@ h1{
     margin-bottom: -45px;
     letter-spacing: 9px;
     padding: 5px;
+}
+
+#guessedLetter {
+    font-size: 22px;
+    font-weight: lighter;
+    display: inline-block;
+    padding: 5px;
+    /* visibility: hidden; */
+}
+.gameover{
+    text-align: center;
+    margin-top: 90px;
+    margin-bottom: 62px;
 }
