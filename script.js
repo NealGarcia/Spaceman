@@ -134,10 +134,13 @@ var displayGameOver = () => {
     gameOverContainer = document.querySelector(".gameover")
     var gameOver = document.createElement("h1");
     var subHeader = document.createElement("p")
+    var subHeader2 = document.createElement("p")
     gameOver.innerText = "GAME OVER"
     subHeader.innerText = "The astronaut was abducted :("
+    subHeader2.innerText = `The word is ${word}`
     gameOverContainer.appendChild(gameOver)
     gameOverContainer.appendChild(subHeader)
+    gameOverContainer.appendChild(subHeader2)
 }
 
 // Display game won message
@@ -187,7 +190,7 @@ var hint = () => {
             hint.innerText = "a giant cloud of dust and gas in space"
         }
         if(word == "TELESCOPE"){
-            hint.innerText = "instrument used to view distant objects in space"
+            hint.innerText = "an instrument used to view distant objects in space"
         }
         if(word == "SATELLITE"){
             hint.innerText = "an object in orbit"
@@ -205,7 +208,7 @@ var hint = () => {
             hint.innerText = "situated or occurring between the stars"
         }
 
-        hint.setAttribute("id", "hint")
+        hint.setAttribute("id", "hintDescription")
         hintWrapper = document.querySelector("#hintWrapper")
         hintWrapper.appendChild(hint)
     }, {once : true})
