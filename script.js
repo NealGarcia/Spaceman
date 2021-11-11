@@ -19,6 +19,7 @@ const words = ["ASTEROID", "GALAXY", "NEBULA", "TELESCOPE", "SATELLITE", "CONSTE
 const randomWord = words[Math.floor(Math.random() * words.length)]; //expression to pick random word from array
 const word = randomWord
 var guessedLetters = [];
+var beamOpacity = 0;
 console.log(word)
 
 var ufo = document.querySelector(".ufo")
@@ -71,7 +72,7 @@ var guess = () => {
             letterClicked = (element.innerText)
             console.log(letterClicked)
 
-            if(word.includes(letterClicked)){ // Conditional 
+            if(word.includes(letterClicked)){ // If word contains letter clicked
                 console.log("true")
                 if (guessedLetters.indexOf(letterClicked) > -1) { // check if letter has already been clicked
                     return;
@@ -81,14 +82,20 @@ var guess = () => {
                 displayWord();
                 hideButton(letterClicked);
                 displayGameWon();
-                return true;
+                
             }
             
-            else{
+            else{ // If word does not contain letter clicked
                 console.log("false")
                 subtractGuess() // subtract 1 from guess count
                 hideButton(letterClicked)
-                return false;
+                
+                // increase opacity of beam
+                console.log(beamOpacity)
+                var beam = document.querySelector(".beam")
+                beamOpacity += 0.16
+                beam.style.opacity = beamOpacity
+                console.log(beamOpacity)
             }
         },{once : true}) // makes the button clickable once
      })
@@ -117,7 +124,7 @@ var resetSpaces = function () {
      })
  }
 
-// Subtract 1 guess everytime player chooses wrong letter
+// Subtract 1 guess everytime player chooses wrong letter AND increase opacity of tractor beam
 var subtractGuess = () => {
      var num = document.querySelector(".guessesLeft").innerText
      var newNum = parseInt(num);
