@@ -20,6 +20,7 @@ const randomWord = words[Math.floor(Math.random() * words.length)]; //expression
 const word = randomWord
 var guessedLetters = [];
 var beamOpacity = 0;
+var spacemanOpacity = 1;
 console.log(word)
 
 var ufo = document.querySelector(".ufo")
@@ -81,7 +82,7 @@ var guess = () => {
                 console.log(guessedLetters)
                 displayWord();
                 hideButton(letterClicked);
-                displayGameWon();
+                //displayGameWon();
                 
             }
             
@@ -90,10 +91,12 @@ var guess = () => {
                 subtractGuess() // subtract 1 from guess count
                 hideButton(letterClicked)
                 
-                // increase opacity of beam
+                // increase opacity of beam and decrease opacity of spaceman
                 console.log(beamOpacity)
                 var beam = document.querySelector(".beam")
                 beamOpacity += 0.16
+                spacemanOpacity -= 0.16
+                spaceman.style.opacity = spacemanOpacity
                 beam.style.opacity = beamOpacity
                 console.log(beamOpacity)
             }
@@ -131,7 +134,9 @@ var subtractGuess = () => {
      newNum = (newNum -1)
     document.querySelector(".guessesLeft").innerText = newNum;
     if (newNum == 0){
-        displayGameOver()
+        // change position of spaceman
+        spaceman.style.opacity = 0.5
+        //displayGameOver()
     }
 }
 
