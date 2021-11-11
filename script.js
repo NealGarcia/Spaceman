@@ -1,17 +1,17 @@
 /* Array of objects -> each object has a word and its hint
 // var wordsArray = [
-//     [{word: "asteroid",
-//       "a small rocky body orbiting the sun" },
+//     {word: "asteroid",
+//       hint: "a small rocky body orbiting the sun" },
 //     {word: "constellation",
-//       "a group of stars that form a pattern in the sky"},
+//       hint: "a group of stars that form a pattern in the sky"},
 //     {word: "nebula",
-//       "a giant cloud of dust and gas in space"},
+//       hint: "a giant cloud of dust and gas in space"},
 //     {word: "telescope",
-//       "instrument used to view distant objects in space"},
+//       hint: "instrument used to view distant objects in space"},
 //     {word: "satellite",
-//       "an object in orbit"},      
+//       hint: "an object in orbit"},      
 //     {word: "galaxy",
-//       "a system of stars and planets"}]
+//       hint: "a system of stars and planets"}]
 */
 
 // Array of words
@@ -170,7 +170,7 @@ var restart = () => {
 var hideButton = (letterClicked) => {
     var id = letterClicked;
     var letterButton = document.querySelector(`#${id}`)
-    letterButton.style.opacity = "0.3";
+    letterButton.style.opacity = "0.25";
     // letterButton.style.borderColor = "#C5C5C5"
     // letterButton.style.color = "#C5C5C5"                                                                   
 }
@@ -203,10 +203,14 @@ var hint = () => {
             hint.innerText = "a space rock that enters Earth's atmosphere"
         }
         if(word == "GRAVITY"){
-            hint.innerText = "a force which tries to pull two objects toward each other"
+            hint.innerText = "a force that pulls two objects toward each other"
         }
         if(word == "INTERSTELLAR"){
-            hint.innerText = "situated or occurring between the stars"
+            hint.innerText = "situated or occurring between the stars. Also the name of a Christopher Nolan movie."
+        }
+        if(word == "PLANET"){
+            hint.innerText = "a celestial body orbiting around a star."
+    
         }
 
         hint.setAttribute("id", "hintDescription")

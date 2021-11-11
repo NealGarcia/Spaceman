@@ -43,7 +43,7 @@ button:hover {
 .description{
     color: white;
     text-align: center;
-    margin-top: -20px;
+    margin-top: -50px;
     margin-left: 100px;
     margin-right: 120px;
     font-size: 18px;
@@ -65,29 +65,44 @@ button:hover {
     margin-left: -70px;
     margin-right: 70px;
     float: right;
+    font-weight: bold;
+    font-size: 24px;
 }
 
 .guessesLeft{
     margin-top: 16px;
     margin-right: -45px;
     float: right;
+    font-size: 24px;
+    font-weight: bold;
+
 }
 
 .ufo {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 10%
+    width: 150px;
+}
+
+.beam {
+    display: block;
+    margin-top: -40px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    position: relative;
+    z-index:-5;
 }
 
 .spaceman
 {
     display: block;
-    margin-top: 150px;
+    margin-top: -150px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 15px;
-    width: 10%;
+    padding-left: 35px;
+    width: 150px;
 }
 
 .alphabetContainer {
@@ -99,10 +114,11 @@ button:hover {
 }
 
 #alphabet{
-    margin:15px auto;
+    margin: auto;
     padding:0;
     max-width:650px;
     text-shadow: none;
+    padding-left: 50px;
 }
 
 #alphabet li{
@@ -127,8 +143,8 @@ button:hover {
 
 .gameover{
     text-align: center;
-    margin-top: 90px;
-    margin-bottom: 62px;
+    /* margin-top: 90px; */
+    margin-bottom: -100px;
 }
 
 #currentWord{
