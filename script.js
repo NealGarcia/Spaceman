@@ -82,7 +82,7 @@ var guess = () => {
                 console.log(guessedLetters)
                 displayWord();
                 hideButton(letterClicked);
-                //displayGameWon();
+                displayGameWon();
                 
             }
             
@@ -91,11 +91,11 @@ var guess = () => {
                 subtractGuess() // subtract 1 from guess count
                 hideButton(letterClicked)
                 
-                // increase opacity of beam and decrease opacity of spaceman
+                // increase opacity of beam AND decrease opacity of spaceman
                 console.log(beamOpacity)
                 var beam = document.querySelector(".beam")
                 beamOpacity += 0.16
-                spacemanOpacity -= 0.16
+                spacemanOpacity -= 0.18
                 spaceman.style.opacity = spacemanOpacity
                 beam.style.opacity = beamOpacity
                 console.log(beamOpacity)
@@ -134,9 +134,7 @@ var subtractGuess = () => {
      newNum = (newNum -1)
     document.querySelector(".guessesLeft").innerText = newNum;
     if (newNum == 0){
-        // change position of spaceman
-        spaceman.style.opacity = 0.5
-        //displayGameOver()
+        displayGameOver()
     }
 }
 

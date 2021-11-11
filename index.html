@@ -15,17 +15,17 @@
 </head>
 <body>
     <header>
-        <button class ="restart">Restart</button>
+        <!-- <button class ="restart">Restart</button> -->
         <p class="guesses">Guesses Left: </p>
         <p class="guessesLeft">6</p>
         <h1 id = "title">SPACEMAN</h1>
-        <h2 class= "description">Use the letters below to guess the <b>outer space</b> related word. <br> After <b>six guesses</b> the astronaut gets abducted!</bt></h2>
+        <h2 class= "description">Use the letters below to guess the <b>outer space</b> related word.<br> With every wrong guess, the alien charges up his tractor beam.<br> After <b>six guesses</b> the astronaut gets abducted!</bt></h2>
     </header>
 
     <main>
-        <img src ="ufo.png" alt="UFO" class = "ufo">
-        <img src ="Beam.png" alt = "tractor beam" class = "beam"
         <div class = "gameover"></div>
+        <img src ="ufo.png" alt="UFO" class = "ufo">
+        <img src ="Beam.png" alt = "tractor beam" class = "beam">
         <img src ="astronaut.png" alt="spaceman" class = "spaceman">
     </main>
 
@@ -33,6 +33,7 @@
         <div id = "currentWord"></div>
         <div id = "alphabetContainer"></div>
         <div id = "hintWrapper">
+            <button class ="restart">Restart</button>
             <button id ="hint">Hint</button>
         </div>
     </footer>

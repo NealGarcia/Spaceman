@@ -12,7 +12,10 @@ h1, h2{
 }
 
 #title{
-    margin-left: 100px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 
     font-family: 'Bowlby One', sans-serif;
     font-weight: 400;
@@ -43,10 +46,10 @@ button:hover {
 .description{
     color: white;
     text-align: center;
-    margin-top: -50px;
+    margin-top: -60px;
     margin-left: 100px;
     margin-right: 120px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: lighter;
 }
 
@@ -55,26 +58,22 @@ button:hover {
     margin: 0 10px;
 }
 
-.restart{
-    margin-right: -70px;
-    margin-left: 20px;
-    float: left;
-}
 
 .guesses{
-    margin-left: -70px;
-    margin-right: 70px;
+    margin-top: 40px;
+    margin-left: -80px;
+    margin-right: 100px;
     float: right;
     font-weight: bold;
     font-size: 24px;
 }
 
 .guessesLeft{
-    margin-top: 16px;
-    margin-right: -45px;
+    margin-top: 40px;
+    margin-right: -95px;
     float: right;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: light;
 
 }
 
@@ -82,7 +81,8 @@ button:hover {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 150px;
+    margin-top: 120px;
+    width: 100px;
 }
 
 .beam {
@@ -90,7 +90,8 @@ button:hover {
     margin-top: -40px;
     margin-left: auto;
     margin-right: auto;
-    height: 300px;
+    height: 250px;
+    opacity: 0%;
     position: relative;
     z-index:-5;
 }
@@ -98,11 +99,13 @@ button:hover {
 .spaceman
 {
     display: block;
-    margin-top: -150px;
+    margin-top: -100px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 35px;
-    width: 150px;
+    padding-left: 20px;
+    width: 100px;
+    
+    
 }
 
 .alphabetContainer {
@@ -115,6 +118,7 @@ button:hover {
 
 #alphabet{
     margin: auto;
+    margin-top: -15px;
     padding:0;
     max-width:650px;
     text-shadow: none;
@@ -143,7 +147,6 @@ button:hover {
 
 .gameover{
     text-align: center;
-    /* margin-top: 90px; */
     margin-bottom: -100px;
 }
 
@@ -161,7 +164,7 @@ button:hover {
 }
 #hintWrapper {
     margin: auto;
-    margin-top: -40px;
+    margin-top: -60px;
     width: 50%;
     text-align:center;
 
@@ -169,8 +172,11 @@ button:hover {
 #hint {
     padding: 10px 20px 10px 20px;
     text-align:center;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #hintDescription {
-    font-weight: light;}
+    font-weight: light;
+    font-size: 14px;
+}
+
