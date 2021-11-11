@@ -1,19 +1,3 @@
-/* Array of objects -> each object has a word and its hint
-// var wordsArray = [
-//     {word: "asteroid",
-//       hint: "a small rocky body orbiting the sun" },
-//     {word: "constellation",
-//       hint: "a group of stars that form a pattern in the sky"},
-//     {word: "nebula",
-//       hint: "a giant cloud of dust and gas in space"},
-//     {word: "telescope",
-//       hint: "instrument used to view distant objects in space"},
-//     {word: "satellite",
-//       hint: "an object in orbit"},      
-//     {word: "galaxy",
-//       hint: "a system of stars and planets"}]
-*/
-
 // Array of words
 const words = ["ASTEROID", "GALAXY", "NEBULA", "TELESCOPE", "SATELLITE", "CONSTELLATION", "METEOR", "GRAVITY", "PLANET", "INTERSTELLAR",]
 const randomWord = words[Math.floor(Math.random() * words.length)]; //expression to pick random word from array
@@ -187,39 +171,39 @@ var hideButton = (letterClicked) => {
 
 // Display hint upon click
 var hint = () => {
-    var hintButton = document.querySelector("#hintWrapper")
+    var hintButton = document.querySelector("#hint")
     hintButton.addEventListener('click', event => {
         console.log("hint button test")
         var hint = document.createElement("p")
         if(word == "ASTEROID"){
-            hint.innerText = "a small rocky body orbiting the sun"
+            hint.innerText = "A rocky fragment floating around space"
         }
         if(word == "GALAXY"){
-            hint.innerText = "a system of stars and planets"
+            hint.innerText = "A system of stars and planets"
         }
         if(word == "NEBULA"){
-            hint.innerText = "a giant cloud of dust and gas in space"
+            hint.innerText = "A giant cloud of dust and gas in space"
         }
         if(word == "TELESCOPE"){
-            hint.innerText = "an instrument used to view distant objects in space"
+            hint.innerText = "An instrument used to view distant objects in space"
         }
         if(word == "SATELLITE"){
-            hint.innerText = "an object in orbit"
+            hint.innerText = "An object in orbit"
         }
         if(word == "CONSTELLATION"){
-            hint.innerText = "a group of stars that form a pattern in the sky"
+            hint.innerText = "A group of stars that form a pattern in the sky"
         }
         if(word == "METEOR"){
-            hint.innerText = "a space rock that enters Earth's atmosphere"
+            hint.innerText = "A space rock that enters Earth's atmosphere"
         }
         if(word == "GRAVITY"){
-            hint.innerText = "a force that pulls two objects toward each other"
+            hint.innerText = "A force that pulls two objects toward each other. Also the name of a movie starring Sandra Bullock and George Clooney"
         }
         if(word == "INTERSTELLAR"){
-            hint.innerText = "situated or occurring between the stars. Also the name of a Christopher Nolan movie."
+            hint.innerText = "Situated or occurring between the stars. Also the name of a Christopher Nolan movie."
         }
         if(word == "PLANET"){
-            hint.innerText = "a celestial body orbiting around a star."
+            hint.innerText = "A celestial body orbiting around a star."
     
         }
 

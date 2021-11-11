@@ -4,7 +4,6 @@ body {
     background-size: 2000px;
     color: white;
     text-shadow: 2px 2px 5px black;
-    
 }
 
 h1, h2{
@@ -57,8 +56,6 @@ button:hover {
     display: inline-block;
     margin: 0 10px;
 }
-
-
 .guesses{
     margin-top: 40px;
     margin-left: -80px;
@@ -74,7 +71,6 @@ button:hover {
     float: right;
     font-size: 24px;
     font-weight: light;
-
 }
 
 .ufo {
@@ -155,7 +151,8 @@ button:hover {
     margin-top: 40px;
     margin-bottom: 40px;
     font-size: 150%;
-    font-family: 'Maven Pro', sans-serif;    font-weight: 800;
+    font-family: 'Maven Pro', sans-serif;    
+    font-weight: 800;
     color: #88df8e;
 }
 
