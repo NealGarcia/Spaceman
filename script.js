@@ -23,8 +23,8 @@ var displayAlphabet = () => {
     alphabetContainer = document.getElementById("alphabetContainer")
     lettersList = document.createElement('ul');
 
-    for (let i = 0; i < alphabet.length; i++) {
-      lettersList.id = 'alphabet';
+    for (let i = 0; i < alphabet.length; i++) { // create unordered list of letters using alphabet array
+      lettersList.id = 'alphabet'; 
       letter = document.createElement('li');
       letter.id = alphabet[i];
       letter.setAttribute("class", "letter")
@@ -33,22 +33,6 @@ var displayAlphabet = () => {
       lettersList.appendChild(letter);
     }      
 }
-
-// Go through all the letters of the word and if a letter has not been guessed, there is an underscore
-var getWordStatus = () => {
-    var wordStatus  = [];
-    var splitWord = word.split("");
-  
-    splitWord.forEach(function (letter) {
-      if (guessedLetters.indexOf(letter) > -1) {
-        wordStatus.push(letter);
-      } else {
-        wordStatus.push("_");
-      }
-    });
-  
-    return wordStatus;
-  };
 
 // Console logs letter when clicked and returns true if 'word' contains letter clicked
 var guess = () => {
@@ -59,15 +43,11 @@ var guess = () => {
 
             if(word.includes(letterClicked)){ // If word contains letter clicked
                 console.log("true")
-                if (guessedLetters.indexOf(letterClicked) > -1) { // check if letter has already been clicked
-                    return;
-                }
                 guessedLetters.push(letterClicked)
                 console.log(guessedLetters)
                 displayWord();
                 hideButton(letterClicked);
                 displayGameWon();
-                
             }
             
             else{ // If word does not contain letter clicked
@@ -76,30 +56,20 @@ var guess = () => {
                 hideButton(letterClicked)
                 
                 // increase opacity of beam AND decrease opacity of spaceman
-                console.log(beamOpacity)
                 var beam = document.querySelector(".beam")
                 beamOpacity += 0.16
                 spacemanOpacity -= 0.18
-                spaceman.style.opacity = spacemanOpacity
                 beam.style.opacity = beamOpacity
-                console.log(beamOpacity)
+                spaceman.style.opacity = spacemanOpacity
             }
         },{once : true}) // makes the button clickable once
      })
  }
 
-// reset spaces
-var resetSpaces = function () {
-    var word = document.getElementById("currentWord");
-    while (word.firstChild) {
-      word.removeChild(word.firstChild);
-    }
-}
-
  // Display word AND spaces
  var displayWord = (word) => {
     resetSpaces();
-    var currentWordDOM = document.querySelector('#currentWord')
+    var currentWordContainer = document.querySelector('#currentWord')
     var currentWord = getWordStatus();
      currentWord.forEach(function (letterClicked) {
          letterContainer = document.querySelector(".letterContainer")
@@ -107,11 +77,35 @@ var resetSpaces = function () {
          var content = document.createTextNode(letterClicked);
 
          spanLetter.appendChild(content)
-         currentWordDOM.appendChild(spanLetter)
+         currentWordContainer.appendChild(spanLetter)
      })
  }
 
-// Subtract 1 guess everytime player chooses wrong letter AND increase opacity of tractor beam
+ // Go through all the letters of the word and if a letter has not been guessed, there is an underscore
+var getWordStatus = () => {
+    var wordStatus  = [];
+    var splitWord = word.split("");
+  
+    splitWord.forEach(function (letter) {
+      if (guessedLetters.includes(letter)) {
+        wordStatus.push(letter);
+      } else {
+        wordStatus.push("_");
+      }
+    });
+  
+    return wordStatus;
+};
+
+// reset spaces
+var resetSpaces = function () {
+    var word = document.getElementById("currentWord");
+    while (word.firstChild) { // while word returns first child element
+      word.removeChild(word.firstChild); // removes child node from DOM
+    }
+}
+
+// Subtract 1 guess everytime player chooses wrong letter
 var subtractGuess = () => {
      var num = document.querySelector(".guessesLeft").innerText
      var newNum = parseInt(num);
@@ -139,7 +133,7 @@ var displayGameOver = () => {
 
 // Display game won message
 var displayGameWon = () => {
-    if (getWordStatus().indexOf("_") < 0){
+    if (getWordStatus().includes("_") == false){
         console.log("game won")
         gameOverContainer = document.querySelector(".gameover")
         var gameOver = document.createElement("h1");
@@ -155,7 +149,7 @@ var displayGameWon = () => {
 var restart = () => {
     var restartButton = document.querySelector(".restart")
     restartButton.addEventListener("click", event => {
-        location.reload();
+        location.reload(); // refresh page
     })
 
 }
@@ -164,9 +158,7 @@ var restart = () => {
 var hideButton = (letterClicked) => {
     var id = letterClicked;
     var letterButton = document.querySelector(`#${id}`)
-    letterButton.style.opacity = "0.25";
-    // letterButton.style.borderColor = "#C5C5C5"
-    // letterButton.style.color = "#C5C5C5"                                                                   
+    letterButton.style.opacity = "0.25";                                                              
 }
 
 // Display hint upon click
