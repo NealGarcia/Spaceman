@@ -5,11 +5,6 @@ const word = randomWord
 var guessedLetters = [];
 var beamOpacity = 0;
 var spacemanOpacity = 1;
-console.log(word)
-
-var ufo = document.querySelector(".ufo")
-var spaceman = document.querySelector(".spaceman")
-var spacesContainer = document.querySelector(".spacesContainer")
 var letter = ""
 var letterClicked = ""
 var alphabet = ['A', 'B', 'C', 'D', 'E', 'F',
@@ -18,9 +13,19 @@ var alphabet = ['A', 'B', 'C', 'D', 'E', 'F',
                 'S', 'T', 'U', 'V', 'W', 'X',
                 'Y', 'Z']
 
+
+
+var ufo = document.querySelector(".ufo")
+var spaceman = document.querySelector(".spaceman")
+var spacesContainer = document.querySelector(".spacesContainer")
+alphabetContainer = document.getElementById("alphabetContainer")
+var currentWordContainer = document.querySelector('#currentWord')
+var gameOverContainer = document.querySelector(".gameover")
+var hintButton = document.querySelector("#hint")
+hintWrapper = document.querySelector("#hintWrapper")
+
 // Display alphabet buttons
 var displayAlphabet = () => {
-    alphabetContainer = document.getElementById("alphabetContainer")
     lettersList = document.createElement('ul');
 
     for (let i = 0; i < alphabet.length; i++) { // create unordered list of letters using alphabet array
@@ -34,14 +39,14 @@ var displayAlphabet = () => {
     }      
 }
 
-// Console logs letter when clicked and returns true if 'word' contains letter clicked
+// When player clicks letter
 var guess = () => {
     document.querySelectorAll(".letter").forEach(element => {
         element.addEventListener('click', event => {
             letterClicked = (element.innerText)
             console.log(letterClicked)
 
-            if(word.includes(letterClicked)){ // If word contains letter clicked
+            if(word.includes(letterClicked)){ // If word contains letter clicked (correct guess)
                 console.log("true")
                 guessedLetters.push(letterClicked)
                 console.log(guessedLetters)
@@ -50,14 +55,16 @@ var guess = () => {
                 displayGameWon();
             }
             
-            else{ // If word does not contain letter clicked
+            else{ // If word does not contain letter clicked (wrong guess)
                 console.log("false")
                 subtractGuess() // subtract 1 from guess count
                 hideButton(letterClicked)
                 
                 // increase opacity of beam AND decrease opacity of spaceman
+                console.log(beamOpacity)
                 var beam = document.querySelector(".beam")
                 beamOpacity += 0.16
+                console.log(beamOpacity)
                 spacemanOpacity -= 0.18
                 beam.style.opacity = beamOpacity
                 spaceman.style.opacity = spacemanOpacity
@@ -69,7 +76,6 @@ var guess = () => {
  // Display word AND spaces
  var displayWord = (word) => {
     resetSpaces();
-    var currentWordContainer = document.querySelector('#currentWord')
     var currentWord = getWordStatus();
      currentWord.forEach(function (letterClicked) {
          letterContainer = document.querySelector(".letterContainer")
@@ -89,7 +95,8 @@ var getWordStatus = () => {
     splitWord.forEach(function (letter) {
       if (guessedLetters.includes(letter)) {
         wordStatus.push(letter);
-      } else {
+      } 
+      else {
         wordStatus.push("_");
       }
     });
@@ -119,7 +126,6 @@ var subtractGuess = () => {
 // Display game over message
 var displayGameOver = () => {
     console.log("game over")
-    gameOverContainer = document.querySelector(".gameover")
     var gameOver = document.createElement("h1");
     var subHeader = document.createElement("p")
     var subHeader2 = document.createElement("p")
@@ -135,7 +141,6 @@ var displayGameOver = () => {
 var displayGameWon = () => {
     if (getWordStatus().includes("_") == false){
         console.log("game won")
-        gameOverContainer = document.querySelector(".gameover")
         var gameOver = document.createElement("h1");
         var subHeader = document.createElement("p")
         gameOver.innerText = "GAME OVER"
@@ -163,7 +168,6 @@ var hideButton = (letterClicked) => {
 
 // Display hint upon click
 var hint = () => {
-    var hintButton = document.querySelector("#hint")
     hintButton.addEventListener('click', event => {
         console.log("hint button test")
         var hint = document.createElement("p")
@@ -196,15 +200,14 @@ var hint = () => {
         }
         if(word == "PLANET"){
             hint.innerText = "A celestial body orbiting around a star."
-    
         }
 
         hint.setAttribute("id", "hintDescription")
-        hintWrapper = document.querySelector("#hintWrapper")
         hintWrapper.appendChild(hint)
     }, {once : true})
 }
 
+console.log(word)
 displayWord()
 displayAlphabet()
 guess()
