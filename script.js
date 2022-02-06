@@ -14,19 +14,21 @@ var alphabet = ['A', 'B', 'C', 'D', 'E', 'F',
                 'Y', 'Z']
 
 
-
+// Return all elements from document
 var ufo = document.querySelector(".ufo")
 var spaceman = document.querySelector(".spaceman")
 var spacesContainer = document.querySelector(".spacesContainer")
-alphabetContainer = document.getElementById("alphabetContainer")
+var alphabetContainer = document.getElementById("alphabetContainer")
 var currentWordContainer = document.querySelector('#currentWord')
 var gameOverContainer = document.querySelector(".gameover")
 var hintButton = document.querySelector("#hint")
-hintWrapper = document.querySelector("#hintWrapper")
+var hintWrapper = document.querySelector("#hintWrapper")
+var letterContainer = document.querySelector(".letterContainer")
+
 
 // Display alphabet buttons
 var displayAlphabet = () => {
-    lettersList = document.createElement('ul');
+    var lettersList = document.createElement('ul');
 
     for (let i = 0; i < alphabet.length; i++) { // create unordered list of letters using alphabet array
       lettersList.id = 'alphabet'; 
@@ -44,27 +46,21 @@ var guess = () => {
     document.querySelectorAll(".letter").forEach(element => {
         element.addEventListener('click', event => {
             letterClicked = (element.innerText)
-            console.log(letterClicked)
 
             if(word.includes(letterClicked)){ // If word contains letter clicked (correct guess)
-                console.log("true")
                 guessedLetters.push(letterClicked)
-                console.log(guessedLetters)
                 displayWord();
                 hideButton(letterClicked);
                 displayGameWon();
             }
             
             else{ // If word does not contain letter clicked (wrong guess)
-                console.log("false")
                 subtractGuess() // subtract 1 from guess count
                 hideButton(letterClicked)
                 
                 // increase opacity of beam AND decrease opacity of spaceman
-                console.log(beamOpacity)
                 var beam = document.querySelector(".beam")
                 beamOpacity += 0.16
-                console.log(beamOpacity)
                 spacemanOpacity -= 0.18
                 beam.style.opacity = beamOpacity
                 spaceman.style.opacity = spacemanOpacity
@@ -78,7 +74,6 @@ var guess = () => {
     resetSpaces();
     var currentWord = getWordStatus();
      currentWord.forEach(function (letterClicked) {
-         letterContainer = document.querySelector(".letterContainer")
          var spanLetter = document.createElement("span")
          var content = document.createTextNode(letterClicked);
 
@@ -117,7 +112,7 @@ var subtractGuess = () => {
      var num = document.querySelector(".guessesLeft").innerText
      var newNum = parseInt(num);
      newNum = (newNum -1)
-    document.querySelector(".guessesLeft").innerText = newNum;
+     document.querySelector(".guessesLeft").innerText = newNum;
     if (newNum == 0){
         displayGameOver()
     }
@@ -156,7 +151,6 @@ var restart = () => {
     restartButton.addEventListener("click", event => {
         location.reload(); // refresh page
     })
-
 }
 
 // Change button styling to show it has been clicked
