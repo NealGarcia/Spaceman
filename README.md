@@ -63,6 +63,7 @@ The biggest setback that I faced was in regards to game functionality - specific
 ## Future Goals
 - Add functionality for multiple words.
 - Add sound and animation.
+- Mobile Responsiveness
 
 ## Bugs
 - After game loss or game won, player can keep clicking letters, resulting in the 'guesses left' to be negative.
