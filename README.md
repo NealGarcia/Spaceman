@@ -31,6 +31,15 @@ I also planned the game's features by defining the Minumum Viable Product (MVP) 
 | Restart | Hints |
 | Display win & loss | Multiple Words
 
+## User Stories
+I created user stories to get a stronger understanding and better perspective of the project's features from the eyes of a prospective user.
+- As a player, I want to see what letters I've already guessed.
+- As a player, I want to see how many guesses I have left.
+- As a player, I want to be able to restart the game at any point.
+- As a player, I want a clean, attractive UI.
+- As a player, I want to be able to input the letter via keyboard.
+- As a player, I want the program to check if my input is a letter and print an error if its not.
+
 ## Wireframes
 To get a clear idea of the game's layout, interface, and functionality, I created low-fidelity wireframes using AdobeXD. 
 
